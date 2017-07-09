@@ -3,7 +3,8 @@ class SearchController < ApplicationController
     if params[:term].nil?
       @articles = []
     else
-      @articles = Article.search params[:term]
+      term = params[:term]
+      @articles = Article.search term, fields: [:text], highlight:  true
     end
   end
 end
