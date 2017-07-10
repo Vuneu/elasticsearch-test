@@ -70,7 +70,7 @@ Visit http://localhost:9200/ You should see something like this (it takes a whil
 
 If this fails, check your logs at `/var/log/elasticsearch` or `/temp/hs_err_pid*.log`
 
-If your station is has 2GB and under you have to change the amount of memory that is allocated, to do this use
+If your station has 2GB of RAM and under, you have to change the amount of memory that is allocated, to do this use
 
 ```
  sudo nano /etc/elasticsearch/elasticsearch.yml
