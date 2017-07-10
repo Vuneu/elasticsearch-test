@@ -60,3 +60,9 @@ gem 'elasticsearch-rails'
 
 # Searchkick 
 gem 'searchkick'
+
+# typeahead.js
+gem 'bootstrap-typeahead-rails'
+
+# jQuery
+gem 'jquery-rails'
