@@ -2,6 +2,25 @@
 
 ## Install Elastic Search
 
+Before intalling, check if Java is installed in your computer
+
+```
+java -version
+```
+
+(version should be 1.8.0_131 or later)
+
+If it isn't, run 
+
+```
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+```
+
+```
+sudo apt-get install oracle-java8-installer
+```
+
 ### Add the repository to your sources
 
 ```
@@ -49,6 +68,28 @@ Visit http://localhost:9200/ You should see something like this (it takes a whil
 }
 ```
 
+If this fails, check your logs at `/var/log/elasticsearch` or `/temp/hs_err_pid*.log`
+
+If your station is has 2GB and under you have to change the amount of memory that is allocated, to do this use
+
+```
+ sudo nano /etc/elasticsearch/elasticsearch.yml
+```
+
+And change the lines
+
+```
+-Xms2G
+-Xmx2G
+```
+
+to 
+
+```
+-Xms512m
+-Xmx512m
+```
+
 Now that Elastic Search is set up, we will use ElasticSearchHQ, an ES GUI manager.
 
 ```
@@ -89,3 +130,30 @@ sudo -i service elasticsearch restart
 Visit http://localhost:8000/?url=http://localhost:9200
 
 ElasticSearchHD's Control Panel should show up!
+
+## Running the app
+
+```
+git clone https://github.com/vuneu/elasticsearch-test
+cd elasticsearch-test
+```
+
+```
+bundle install
+```
+
+```
+rails db:setup
+```
+
+```
+rake environment elasticsearch:import:all force=y
+```
+
+```
+rake searchkick:reindex CLASS=Article
+```
+
+```
+rails s
+```
