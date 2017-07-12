@@ -73,7 +73,7 @@ If this fails, check your logs at `/var/log/elasticsearch` or `/temp/hs_err_pid*
 If your station has 2GB of RAM and under, you have to change the amount of memory that is allocated, to do this use
 
 ```
- sudo nano /etc/elasticsearch/elasticsearch.yml
+ sudo nano /etc/elasticsearch/jvm.options
 ```
 
 And change the lines
